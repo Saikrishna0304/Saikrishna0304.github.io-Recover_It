@@ -1,0 +1,64 @@
+:root { --bg:#0c1216; --panel:#142027; --panel-strong:#1b2b32; --line:#2c4148; --text:#f4f7f2; --muted:#9aaba8; --accent:#b9e86c; --accent-ink:#142008; --blue:#8fd3dc; --danger:#ff9c8b; }
+* { box-sizing:border-box; }
+body { margin:0; min-height:100vh; color:var(--text); background:#101a1e; font:15px/1.5 Georgia,serif; }
+.wrap { width:min(1080px,90%); margin:auto; }
+header { display:flex; justify-content:space-between; align-items:center; padding:25px 0; border-bottom:1px solid #ffffff12; }
+.brand { display:flex; gap:11px; align-items:center; font:700 18px/1.1 'Trebuchet MS',sans-serif; letter-spacing:.3px; }
+.logo { display:grid; place-items:center; width:37px; height:37px; border-radius:50%; color:var(--accent-ink); background:var(--accent); font-size:20px; }
+nav a { color:var(--muted); text-decoration:none; margin-left:28px; font:600 13px 'Trebuchet MS',sans-serif; }
+nav a:hover { color:var(--text); }
+.hero { display:grid; grid-template-columns:1.2fr .8fr; gap:52px; align-items:end; padding:62px 0 38px; }
+.eyebrow { color:var(--accent); font:700 11px 'Trebuchet MS',sans-serif; letter-spacing:2px; text-transform:uppercase; }
+h1 { max-width:700px; margin:15px 0 16px; font-size:clamp(42px,6vw,64px); line-height:1.02; letter-spacing:0; }
+.hero p { max-width:410px; margin:0 0 3px; color:var(--muted); font-size:17px; }
+.card { position:relative; max-width:100%; padding:31px; border:1px solid var(--line); border-radius:8px; background:#16252b; box-shadow:0 16px 45px #0003; }
+.cardhead { position:relative; z-index:1; display:flex; justify-content:space-between; gap:20px; align-items:start; }
+.card h2 { margin:0 0 5px; font:700 20px 'Trebuchet MS',sans-serif; }
+.cardhead p { margin:0; color:var(--muted); }
+.file-type { color:var(--blue); font:700 11px 'Trebuchet MS',sans-serif; letter-spacing:1px; text-transform:uppercase; }
+.primary, .secondary { border:0; border-radius:4px; padding:12px 18px; cursor:pointer; font:700 13px 'Trebuchet MS',sans-serif; }
+.primary { color:var(--accent-ink); background:var(--accent); }
+.secondary { color:var(--text); background:#ffffff10; border:1px solid var(--line); }
+.primary:hover, .secondary:hover { filter:brightness(1.1); }
+input { display:none; }
+.status { display:none; margin-top:25px; padding-top:23px; border-top:1px solid var(--line); text-align:left; }
+.status.show { display:block; }
+.fileline { display:flex; justify-content:space-between; gap:15px; align-items:center; }
+.filename { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:700; }
+.size { color:var(--muted); font-size:13px; }
+.track { height:7px; margin:17px 0 8px; overflow:hidden; border-radius:10px; background:#26383b; }
+.bar { width:0; height:100%; background:var(--accent); transition:width .3s; }
+.statusfoot { display:flex; justify-content:space-between; color:var(--muted); font:13px 'Trebuchet MS',sans-serif; }
+#result { margin-top:13px; color:var(--accent); }
+.download { display:inline-block; margin-top:4px; color:var(--accent-ink); text-decoration:none; }
+.song-lookup { margin-top:24px; padding-top:22px; border-top:1px solid var(--line); }
+.song-lookup h3 { margin:4px 0 0; font:700 16px 'Trebuchet MS',sans-serif; }
+.lookup-note { margin:4px 0 0; color:var(--muted); font-size:13px; }
+#song-form { display:flex; gap:10px; margin-top:14px; }
+#song-form input { display:block; min-width:0; flex:1; padding:11px 13px; border:1px solid var(--line); border-radius:4px; outline:0; color:var(--text); background:#0c171b; font:14px 'Trebuchet MS',sans-serif; }
+#song-form input:focus { border-color:var(--accent); }
+#song-form #acr-host, #song-form #acr-access-key, #song-form #acr-access-secret { display:none; }
+#song-status { min-height:20px; margin-top:12px; color:var(--muted); font:12px 'Trebuchet MS',sans-serif; }
+.song-result { display:flex; justify-content:space-between; gap:15px; align-items:center; padding:12px 0; border-top:1px solid var(--line); }
+.song-result strong, .song-result small { display:block; }
+.song-result small { margin-top:2px; color:var(--muted); }
+.song-result a { flex-shrink:0; color:var(--blue); font:700 12px 'Trebuchet MS',sans-serif; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.tips { display:flex; justify-content:space-between; gap:20px; margin:22px 0 58px; padding:0 5px; color:var(--muted); font:12px 'Trebuchet MS',sans-serif; }
+.tips span::before { content:'✓'; color:var(--accent); margin-right:7px; font-weight:bold; }
+footer { border-top:1px solid #ffffff12; padding:24px 0; color:#71817d; font:12px 'Trebuchet MS',sans-serif; text-align:center; }
+.dialog-backdrop { display:none; position:fixed; inset:0; z-index:5; place-items:center; padding:20px; background:#081014e8; }
+.dialog-backdrop.open { display:grid; }
+.dialog { width:min(520px,100%); padding:30px; border:1px solid var(--line); border-radius:8px; background:#16252b; box-shadow:0 30px 90px #0009; }
+.dialog-top { display:flex; justify-content:space-between; align-items:start; gap:20px; }
+.dialog h2 { margin:0 0 6px; font:700 23px 'Trebuchet MS',sans-serif; }
+.dialog p { margin:0; color:var(--muted); }
+.close { border:0; padding:3px 8px; color:var(--muted); background:transparent; cursor:pointer; font-size:25px; line-height:1; }
+.drop { display:grid; place-items:center; min-height:228px; margin-top:25px; padding:26px; border:1px dashed #607a78; border-radius:6px; text-align:center; transition:.2s; }
+.drop.over, .drop:focus-within { border-color:var(--accent); background:#b9e86c0d; }
+.music-icon { width:55px; height:55px; display:grid; place-items:center; margin:auto; border-radius:50%; background:#263d42; color:var(--blue); font-size:25px; }
+.drop h3 { margin:14px 0 5px; font:700 17px 'Trebuchet MS',sans-serif; }
+.drop p { margin:0 0 16px; color:var(--muted); }
+.drop-hint { margin-top:16px !important; font-size:12px; }
+.dialog-actions { display:flex; justify-content:flex-end; gap:10px; margin-top:20px; }
+@media (max-width:650px) { header { padding:18px 0; } nav a { margin-left:12px; } .hero { display:block; padding:55px 0 32px; } .hero p { margin-top:22px; } .card { padding:22px; } .cardhead { display:block; } .cardhead .primary { margin-top:20px; width:100%; } #song-form { display:block; } #song-form .secondary { width:100%; margin-top:10px; } .song-result { align-items:start; } .tips { display:block; margin-bottom:48px; } .tips span { display:block; margin:10px 0; } .dialog { padding:22px; } }

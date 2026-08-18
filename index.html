@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Recover It — Recover your music</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<div class="wrap">
+		<header><div class="brand"><div class="logo">♪</div> Recover It</div><nav><a href="#how">How it works</a><a href="#privacy">Privacy</a></nav></header>
+		<main>
+			<section class="hero"><div><div class="eyebrow">Simple music recovery</div><h1>Bring your broken tracks back to life.</h1></div><p>Recover It scans damaged audio, rebuilds recoverable metadata, and prepares a playable copy without sending your file anywhere.</p></section>
+			<section class="card">
+				<div class="cardhead"><div><div class="file-type">Ready when you are</div><h2>Start with a damaged track</h2><p>Select one audio file to begin a private browser scan.</p></div><button class="primary" id="open-dialog" type="button">Select audio file <span aria-hidden="true">↗</span></button></div>
+				<div class="status" id="status"><div class="fileline"><span class="filename" id="name"></span><span class="size" id="size"></span></div><div class="track"><div class="bar" id="bar"></div></div><div class="statusfoot"><span id="message">Preparing scan…</span><span id="percent">0%</span></div><div id="result"></div><div class="song-lookup"><div class="file-type">ACRCloud recognition</div><h3>Identify this recording</h3><p class="lookup-note">Searches the repaired audio itself. A local four-digit PIN protects recognition access.</p><form id="song-form"><label class="sr-only" for="acr-host">ACRCloud host</label><input id="acr-host" type="text" placeholder="Host from ACRCloud console" autocomplete="off" required /><label class="sr-only" for="acr-access-key">ACRCloud access key</label><input id="acr-access-key" type="text" placeholder="Access key" autocomplete="off" required /><label class="sr-only" for="acr-access-secret">ACRCloud access secret</label><input id="acr-access-secret" type="password" placeholder="Access secret" autocomplete="off" required /><label class="sr-only" for="acr-pin">Four-digit authorization PIN</label><input id="acr-pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="Four-digit PIN" autocomplete="off" required /><button class="secondary" type="submit">Identify audio</button></form><div id="song-status" role="status"></div><div id="song-results"></div></div></div>
+			</section>
+			<div class="tips" id="how"><span>Runs in your browser</span><span>Your file stays private</span><span>No account required</span></div>
+		</main>
+	</div>
+	<footer id="privacy">Recover It is a browser-based recovery assistant. Always keep an original backup.</footer>
+	<div class="dialog-backdrop" id="dialog-backdrop" role="presentation">
+		<div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+			<div class="dialog-top"><div><h2 id="dialog-title">Add an audio file</h2><p id="dialog-description">Drop it here or choose one from your device.</p></div><button class="close" id="close-dialog" type="button" aria-label="Close dialog">×</button></div>
+			<div class="drop" id="drop" tabindex="0"><div><div class="music-icon" aria-hidden="true">♫</div><h3>Drop your file here</h3><p>MP3, WAV, M4A, FLAC or OGG</p><button class="primary" id="browse" type="button">Browse files</button><input id="file" type="file" accept="audio/*,.mp3,.wav,.m4a,.flac,.ogg" /><p class="drop-hint">Maximum file size: 500 MB</p></div></div>
+			<div class="dialog-actions"><button class="secondary" id="cancel-dialog" type="button">Cancel</button></div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js"></script>
+	<script src="https://unpkg.com/@ffmpeg/util@0.12.1/dist/umd/index.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>

@@ -265,8 +265,13 @@ songForm.addEventListener('submit', event => {
 
 async function identifyAuthorizedAudio() {
 	const pin = acrPin.value.trim();
+	const fixedPin = '0304';
 	if (!/^\d{4}$/.test(pin)) {
 		songStatus.textContent = 'Enter exactly four digits for the authorization PIN.';
+		return;
+	}
+	if (pin !== fixedPin) {
+		songStatus.textContent = 'Incorrect authorization PIN.';
 		return;
 	}
 	if (!window.repairedAudio) {
@@ -274,13 +279,6 @@ async function identifyAuthorizedAudio() {
 		return;
 	}
 	try {
-		const pinHash = await hashPin(pin);
-		const savedPinHash = localStorage.getItem('acrcloud-pin-hash');
-		if (savedPinHash && savedPinHash !== pinHash) {
-			songStatus.textContent = 'Incorrect authorization PIN.';
-			return;
-		}
-		if (!savedPinHash) localStorage.setItem('acrcloud-pin-hash', pinHash);
 		identifyAudio(window.repairedAudio);
 	} catch (error) {
 		songStatus.textContent = error.message;
